@@ -1,10 +1,11 @@
-import Classroom from "0-classroom.js"
-import ClassRoom from "./0-classroom";
+import ClassRoom from './0-classroom';
+
 export default function initializeRooms() {
-  const size = [19, 20, 34];
-  const ClassArray = [];
+  const sizes = [19, 20, 34];
+  const classArray = [];
+
   for (const size of sizes) {
-    ClassArray.push(new ClassRoom(size));
+    classArray.push(new ClassRoom(size));
   }
-  return ClassArray;
+  return classArray;
 }
