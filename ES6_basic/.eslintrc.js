@@ -18,12 +18,14 @@ module.exports = {
     },
     plugins: ['jest'],
     rules: {
+      'indent': ['error, 2'],
       'no-console': 'off',
       'no-shadow': 'off',
       'no-restricted-syntax': [
         'error',
         'LabeledStatement',
         'WithStatement',
+        
       ],
     },
     overrides:[
