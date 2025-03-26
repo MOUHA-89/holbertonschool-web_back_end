@@ -1,7 +1,3 @@
-import Currency from './3-currency';
-
-const currency = new Currency();
-console.log(currency.somemethod());
 export default class Pricing {
   constructor(amount, currency) {
     this._amount = amount;
@@ -31,7 +27,7 @@ export default class Pricing {
   }
 
   displayFullPrice() {
-    return `${this._amount_currency_name} (${this._currency_code})`;
+    return `${this._amount} ${this._currency_name} (${this._currency_code})`;
   }
 
   static convertPrice(amount, conversionRate) {
