@@ -8,26 +8,20 @@ export default class Pricing {
     return this._amount;
   }
 
+  set amount(value) {
+    this._amount = value;
+  }
+
   get currency() {
     return this._currency;
   }
 
-  set amount(newvalue) {
-    if (typeof newvalue !== 'number') {
-      throw new TypeError('amount must be an Number');
-    }
-    this._amount = newvalue;
-  }
-
   set currency(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('currency must be an Currency');
-    }
     this._currency = value;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency_name} (${this._currency_code})`;
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
