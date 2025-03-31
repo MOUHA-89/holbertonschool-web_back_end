@@ -1,23 +1,7 @@
-function getListStudents() {
-    return [
-      {
-        id: 1,
-        firstName: "Guillaume",
-        location: "San Francisco"
-      },
-      {
-        id: 2,
-        firstName: "James",
-        location: "Columbia"
-      },
-      {
-        id: 5,
-        firstName: "Serena",
-        location: "San Francisco"
-      },
-    ];
-  }
-  
-  // Example usage:
-  console.log(getListStudents());
-  
+export default function getListStudents() {
+  const v1 = { id: 1, firstName: 'Guillaume', location: 'San fransico' };
+  const v2 = { id: 2, firstName: 'James', location: 'Columbia' };
+  const v3 = { id: 5, firstName: 'Serena', location: 'San Francisco' };
+
+  return { v1, v2, v3 };
+}
