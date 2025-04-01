@@ -1,13 +1,13 @@
 import { resolve } from "path";
 
 export default function getResponseFromAPI() {
-  return promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const success = true;
     if (success) {
-      resolve("operation successful");
+      resolve(" Success!");
     }
     else {
-      reject("operation failled");
+      reject("Failled");
     }
   });
 }
