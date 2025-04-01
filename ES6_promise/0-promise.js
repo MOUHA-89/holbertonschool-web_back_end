@@ -1,5 +1,3 @@
-import { resolve } from "path";
-
 export default function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
     const success = true;
@@ -7,7 +5,7 @@ export default function getResponseFromAPI() {
       resolve(" Success!");
     }
     else {
-      reject("Failled");
+      reject("Failled!");
     }
   });
 }
