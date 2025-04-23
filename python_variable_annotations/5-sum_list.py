@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Python programm
+"""
 from typing import List
 """
 Define and annotate a function sum_list that takes a list
