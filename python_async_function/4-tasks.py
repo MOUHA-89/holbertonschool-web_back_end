@@ -4,8 +4,6 @@ Python programm
 """
 import asyncio
 from typing import List
-from basic_async_syntax import task_wait_random
-
 
 # Import task_wait_random from the same module (adjust import if needed)
 task_wait_random = __import__('3-tasks').task_wait_random
@@ -20,4 +18,5 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     for task in asyncio.as_completed(tasks):
         delay = await task
         delays.append(delay)
+
     return delays
