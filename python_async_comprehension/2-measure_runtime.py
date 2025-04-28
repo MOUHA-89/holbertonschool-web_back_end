@@ -12,6 +12,11 @@ async def measure_runtime():
     Measures the runtime of async_comprehension.
     """
     start_time = time.time()
-    await async_comprehension()
+    await asyncio.gather(
+    async_comprehension(),
+    async_comprehension(),
+    async_comprehension(),
+    async_comprehension()
+    )
     end_time = time.time()
     return end_time - start_time
