@@ -5,6 +5,7 @@ this module contains an asynchronous generator function
 from async_comprehension import async_comprehension
 import time
 
+
 async def measure_runtime():
     """
     Measures the runtime of async_comprehension.
