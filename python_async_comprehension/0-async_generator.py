@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+"""
+python programm
+"""
+import random
+import asyncio
+
+
+async def async_generator():
+    """Yields a random number between 0 and 10 every second."""
+    while True:
+        await asyncio.sleep(1)
+        yield random.randint(0, 10)
