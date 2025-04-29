@@ -40,16 +40,18 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-             """Return paginated dataset with index-based navigation metadata."""
-             dataset = self.dataset()
-             assert isinstance(index, int) and 0 <= index < len(dataset), "index must be a valid integer within dataset range"
-             assert isinstance(page_size, int) and page_size > 0, "page_size must be a positive integer"
+        """Return paginated dataset with index-based navigation metadata."""
+        dataset = self.dataset()
+        assert isinstance(index, int) and 0 <= index < len(dataset), \
+            "index must be a valid integer within dataset range"
+        assert isinstance(page_size, int) and page_size > 0, \
+            "page_size must be a positive integer"
 
-             data = dataset[index:index + page_size]
-             next_index = index + page_size
-             next_index = next_index if next_index < len(dataset) else None
+        data = dataset[index:index + page_size]
+        next_index = index + page_size
+        next_index = next_index if next_index < len(dataset) else None
 
-             return { 
+        return {
                 "index": index,
                 "next_index": next_index,
                 "page_size": len(data),
