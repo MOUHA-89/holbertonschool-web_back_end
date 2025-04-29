@@ -1,0 +1,3 @@
+// Switch to or creat my_db
+use my_db
+quit()
