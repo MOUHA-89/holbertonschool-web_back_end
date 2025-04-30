@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """ pymongo list """
 from pymongo import MongoClient
+from typing import List
 def list_all(mongo_collection):
     """Lists all documents in a MongoDB collection"""
-    documents = mongo_collection.find()
-    return list(documents) if documents else []
+    documents = List(mongo_collection.find())
+    return documents
