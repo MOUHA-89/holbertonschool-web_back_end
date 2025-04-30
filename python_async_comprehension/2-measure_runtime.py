@@ -1,22 +1,14 @@
 #!/usr/bin/env python3
 """
-this module contains an asynchronous generator function
+Run time for four parallel comprehensions
 """
-from async_comprehension import async_comprehension
-import time
 import asyncio
-
-
+import time
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 async def measure_runtime() -> float:
     """
-    Measures the runtime of async_comprehension.
+    measure_runtime function
     """
-    start_time = time.time()
-    await asyncio.gather(
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension()
-    )
-    end_time = time.time()
-    return end_time - start_time
+    start_time = time.perf_counter()
+    await asyncio.gather(*(async_comprehension() for i in range(4)))
+    return time.perf_counter() - start_time
