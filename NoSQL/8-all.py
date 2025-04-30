@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
-""" pymongo list """
-from pymongo import MongoClient
-from typing import List
+"""
+List all documents in Python
+"""
+import pymongo
+
+
 def list_all(mongo_collection):
-    """Lists all documents in a MongoDB collection"""
-    documents = List(mongo_collection.find())
-    return documents
+    """
+    function to list all documents in a collection
+    """
+    if not mongo_collection:
+        return []
+    documents = mongo_collection.find()
+    return [post for post in documents]
