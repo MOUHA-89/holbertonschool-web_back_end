@@ -10,3 +10,4 @@ process.stdin.on('data', (input) => {
 process.on('exit', () => {
   console.log('This important software is now closing');
 });
+module.exports = process.stdin.on;
