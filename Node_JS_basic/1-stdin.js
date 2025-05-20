@@ -2,8 +2,8 @@ process.stdin.setEncoding('utf8');
 console.log('Welcome to Holberton School, what is your name?:');
 
 process.stdin.on('data', (input) => {
-  const text = input.trim();
-  console.log(`Your name is : "${text}"`);
+  const name = input.trim();
+  console.log(`Your name is: ${name}`);
   process.exit();
 });
 
