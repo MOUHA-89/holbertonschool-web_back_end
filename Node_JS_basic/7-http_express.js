@@ -13,11 +13,13 @@ function countStudents(pathToFile) {
       }
 
       const lines = data.split('\n').filter((line) => line.trim() !== '');
-      const students = lines.slice(1); // skip header
+      const students = lines.slice(1);
 
       const fields = {};
       students.forEach((line) => {
-        const [firstname, , , field] = line.split(',');
+        const parts = line.split(',');
+        const firstname = parts[0];
+        const field = parts[3];
         if (field) {
           if (!fields[field]) {
             fields[field] = [];
@@ -26,14 +28,14 @@ function countStudents(pathToFile) {
         }
       });
 
-      let result = `Number of students: ${students.length}\n`;
+      let result = `Number of students: ${students.length}`;
       for (const field in fields) {
         if (Object.prototype.hasOwnProperty.call(fields, field)) {
-          result += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
+          result += `\nNumber of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`;
         }
       }
 
-      resolve(result.trim());
+      resolve(result);
     });
   });
 }
@@ -47,16 +49,11 @@ app.get('/students', async (req, res) => {
   res.type('text/plain');
   const dbFile = process.argv[2];
 
-  if (!dbFile) {
-    res.send('Database filename not provided');
-    return;
-  }
-
   try {
-    const content = await countStudents(dbFile);
-    res.send(`This is the list of our students\n${content}`);
-  } catch (error) {
-    res.send(error.message);
+    const summary = await countStudents(dbFile);
+    res.send(`This is the list of our students\n${summary}`);
+  } catch (err) {
+    res.send('This is the list of our students\nCannot load the database');
   }
 });
 
